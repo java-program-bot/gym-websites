@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> dshbdjh</title>
+    <title> Hey buddy</title>
  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="header">
         <div class="container">
             <nav>
-                <img src="images/logo.png" class="logo">
+                <!-- <img src="images/logo.png" class="logo"> -->
+                <!-- couldn't find "logo.png" so, for testing, using "img.jpg" instead. you can always change in your accordance-->
+                <img src="img.jpg" class="logo">
                 <ul>
                     <li><a href="#">home</a></li>
                     <li><a href="#">about</a></li>
@@ -22,8 +24,9 @@
             </nav>
             <div class="header-text">
                 <p>UI/UX designer</p>
-                <h1>Hi, I am Anisha Mishra from India <br>    welcome in our  GYM</h1>
-                
+                <h1>Hi, I am Anisha Mishra from India<br>welcome in our GYM</h1>
+                <!-- you cannot insert more than one white space
+                many found; removing... -->
             </div>
 
         </div>
@@ -32,17 +35,20 @@
     <div id="about">
         <div class="row">
             <div class="about-col-1">
-                <img src="./images/img1.jpg" >
-
+                <img src="img1.jpg" >
+                <!-- for sure u can use a better pic....kidding....😂 -->
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">ABOUT ME</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt delectus accusantium praesentium. Earum corrupti atque impedit consequatur repudiandae, aperiam cumque nisi qui quaerat libero veritatis. Sit quidem rerum doloribus recusandae.</p>
                 <div class="tab-titles ">
+
                 <p class="tab-links active-link" onclick="opentab('skills')">skills></p>
+
                 <p class="tab-links" onclick="opentab('experience')">experience</p>
+
              </div>
-             <div class="tab-contents active-tab" id="skills">
+             <div class="x tab-contents active-tab" id="skills">
                 <ul>
                     <li><span>UI?UX</span><br>designing web/app interfaces</li>
                     <li><span>web development</span><br> web app development</li>
@@ -73,18 +79,29 @@
 
     </div>
     <script>
-        var tablinks=Document.getelementsbyclassname("tab-links");
-        var tabcontents=Document.getelementsbyclassname("tab-contents");
+        // you wrote "getelementsbyclassname". Actually it is "getElementsByClassName".
+        // Also the D of "Document" should be in small
+        // commenting wrong one for your reference
+        // var tablinks=Document.getelementsbyclassname("tab-links");
+        // var tabcontents=Document.getelementsbyclassname("tab-contents");
+
+        var tablinks=document.getElementsByClassName("tab-links");
+        var tabcontents=document.getElementsByClassName("tab-contents");
+
         function opentab(tabname){
-         for(tablink of tablinks){
-            tablink.classlist.remove("active-link");
-         }
-         for(tabcontents of tabcontents){
-            tabcontents.classlist.remove("active-tab");
-         }
-         event.currentTarget.classlist.add("active-link");
-         document.getElementById(tabname).classlist.add("active.")
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+
+            // its not "classlist", its "classList". replaced....
+            
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active");
         }
     </script>
 </body>
+<!-- kindly develope the habit of writing comments to make your code easier to understand -->
 </html>
